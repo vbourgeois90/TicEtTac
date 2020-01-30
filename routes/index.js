@@ -12,28 +12,10 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* PAGE D'ACCUEIL */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
 
-/* PAGE LOGIN */
-router.get('/login'), function(req, res, next){
-
-  res.render('login')
-};
-
-/* SIGN-IN */
-router.form('/sign-in'), function(req, res, next){
-
-}
-
-
-/* SIGN-UP */
-
-
 /* LANCER LA RECHERCHE */
-
-
-
 
 module.exports = router;
