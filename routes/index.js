@@ -25,13 +25,12 @@ router.post('/recherche', async function(req, res, next) {
   var depart=req.body.depart;
   var arrivee=req.body.arrivee;
   var date=req.body.date;
-  console.log(depart, arrivee, date)
 
   var dispo= await journeyModel.find(
     {departure: req.body.depart, arrival: req.body.arrivee, date: req.body.date}
   )
   
-  if(dispo){
+  if(dispo.length!=0){
     res.render('choix', {dispo});
   } else {
     res.render('error');
@@ -40,16 +39,25 @@ router.post('/recherche', async function(req, res, next) {
 });
 
 /* CHOIX */
-router.get('/choix', async function(req, res, next) {
-  console.log(req.query);
-  console.log("SESS", req.session.voyages)
+router.get('/addjourney', async function(req, res, next) {
   var voyage= await journeyModel.findOne(
     {_id: req.query.voyage}
   );
-  console.log("CE VOYAGE", voyage);
   req.session.voyages.push(voyage);
-  console.log(req.session.voyages)
   res.render('panier', {listeVoyages: req.session.voyages});
+});
+
+/* CHECKOUT */
+router.get('/checkout', async function(req, res, next) {
+  console.log(req.session)
+  var user=await userModel.findById(req.session.user.id);
+  console.log("USER", user)
+  user.journey.push(req.session.voyages[0]);
+  console.log(user);
+  var usersaved = await user.save();
+  req.session.voyages=[];
+  console.log(req.session.voyages);
+  res.render('index');
 });
 
 /* HISTORIQUE */
@@ -58,6 +66,9 @@ router.get('/historique', function(req, res, next) {
   res.render('historique');
 });
 
-
+/* REDIRECTION HOMEPAGE */
+router.get('/homepage', function(req, res, next) {
+  res.render('index');
+});
 
 module.exports = router;

@@ -45,8 +45,8 @@
                           </tr>
                     <% 
                     total+=listeVoyages[i].price
-                    } 
-                    %>
+                    } %>
+                    
                 </tbody>
                 <tr>
                     <th scope="row">Total</th>
@@ -56,10 +56,12 @@
                     <td><%=total%> €</td>
                   </tr>
               </table>
-              
-              <a href='/choix'><button href='/choix' type="button" class="btn btn-danger ">Confirm</button></a>
 
+            </div>
 
+            <div class="row">
+              <a href='/homepage'><button type="button" class="btn btn-danger">Add another trip</button></a>
+              <a href='/checkout'><button type="button" class="btn btn-danger">Checkout</button></a>
             </div>
 
         </div>
