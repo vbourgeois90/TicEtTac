@@ -12,6 +12,10 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* PAGE D'ACCUEIL */
 router.get('/', function(req, res, next) {
+  if(!req.session.voyages){
+    req.session.voyages=[];
+  };
+  console.log(req.session.voyages);
   res.render('login');
 });
 
@@ -36,9 +40,16 @@ router.post('/recherche', async function(req, res, next) {
 });
 
 /* CHOIX */
-router.get('/choix', function(req, res, next) {
-
-  res.render('panier');
+router.get('/choix', async function(req, res, next) {
+  console.log(req.query);
+  console.log("SESS", req.session.voyages)
+  var voyage= await journeyModel.findOne(
+    {_id: req.query.voyage}
+  );
+  console.log("CE VOYAGE", voyage);
+  req.session.voyages.push(voyage);
+  console.log(req.session.voyages)
+  res.render('panier', {listeVoyages: req.session.voyages});
 });
 
 /* HISTORIQUE */
