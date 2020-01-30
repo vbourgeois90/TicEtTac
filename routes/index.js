@@ -12,9 +12,11 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* PAGE D'ACCUEIL */
 router.get('/', function(req, res, next) {
+  console.log(req.session.user);
   if(!req.session.voyages){
     req.session.voyages=[];
   };
+  req.session.user=undefined;
   console.log(req.session.voyages);
   res.render('login');
 });
@@ -22,6 +24,9 @@ router.get('/', function(req, res, next) {
 
 /* RECHERCHE DE VOYAGES */
 router.post('/recherche', async function(req, res, next) {
+  if(req.session.user===undefined){
+    res.redirect('/')
+  }
   var depart=req.body.depart;
   var arrivee=req.body.arrivee;
   var date=req.body.date;
@@ -40,6 +45,9 @@ router.post('/recherche', async function(req, res, next) {
 
 /* CHOIX */
 router.get('/addjourney', async function(req, res, next) {
+  if(req.session.user===undefined){
+    res.redirect('/')
+  }
   var voyage= await journeyModel.findOne(
     {_id: req.query.voyage}
   );
@@ -49,9 +57,10 @@ router.get('/addjourney', async function(req, res, next) {
 
 /* CHECKOUT */
 router.get('/checkout', async function(req, res, next) {
-  console.log(req.session)
+  if(req.session.user===undefined){
+    res.redirect('/')
+  }
   var user=await userModel.findById(req.session.user.id);
-  console.log("USER", user)
 
   for(let i=0; i<req.session.voyages.length; i++){
     user.journey.push(req.session.voyages[i]);
@@ -66,10 +75,12 @@ router.get('/checkout', async function(req, res, next) {
 
 /* HISTORIQUE */
 router.get('/historique', async function(req, res, next) {
+  if(req.session.user===undefined){
+    res.redirect('/')
+  }
   var user=await userModel.findById(req.session.user.id)
                           .populate('journey')
                           .exec();
-  console.log(user);
   res.render('historique', {userJourneys: user.journey});
 });
 

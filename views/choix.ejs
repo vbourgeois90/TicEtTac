@@ -19,7 +19,7 @@
            <div  class="row-fluid">
            
                <div class="col text-center get_started">
-                 <h2>Tickets available on <%=dispo[0].date%>:</h2>
+                 <h2>Tickets available on <%=displayDate(dispo[0].date)%>:</h2>
                </div>
 
                <!-- liste options trajets -->
@@ -29,7 +29,7 @@
 
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <h5><%=dispo[i].departure%> / <%=dispo[i].arrival%></h5>
-                        <h6>train departure at: <%=dispo[i].departureTime%> pm</h6>
+                        <h6>train departure at: <%=dispo[i].departureTime%> h</h6>
                         <a href='/addjourney?voyage=<%=dispo[i]._id%>'><button type="button" class="btn btn-danger">OK</button></a>
                     </li>
 
