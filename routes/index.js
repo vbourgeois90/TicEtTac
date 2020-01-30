@@ -12,19 +12,27 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* PAGE D'ACCUEIL */
 router.get('/', function(req, res, next) {
-  console.log("RETOUR ACCUEIL")
   res.render('login');
 });
 
 
-/* LANCER LA RECHERCHE */
+/* RECHERCHE DE VOYAGES */
 router.post('/recherche', async function(req, res, next) {
   var depart=req.body.depart;
   var arrivee=req.body.arrivee;
-  var journeys= await journeyModel.find();
-  console.log("CHOIX")
-  res.render('choix');
+  var date=req.body.date;
+  console.log(depart, arrivee, date)
 
+  var dispo= await journeyModel.find(
+    {departure: req.body.depart, arrival: req.body.arrivee, date: req.body.date}
+  )
+  
+  if(dispo){
+    res.render('choix', {dispo});
+  } else {
+    res.render('error');
+  }
+  
 });
 
 /* CHOIX */
@@ -37,7 +45,7 @@ router.get('/choix', function(req, res, next) {
 router.get('/historique', function(req, res, next) {
 
   res.render('historique');
-})
+});
 
 
 
