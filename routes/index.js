@@ -38,20 +38,26 @@ router.post('/recherche', async function(req, res, next) {
   if(dispo.length!=0){
     res.render('choix', {dispo});
   } else {
-    res.render('error');
+    res.render('notrains');
   }
-  
 });
 
 /* CHOIX */
 router.get('/addjourney', async function(req, res, next) {
+  console.log(req.session.voyages);
   if(req.session.user===undefined){
     res.redirect('/')
   }
   var voyage= await journeyModel.findOne(
     {_id: req.query.voyage}
   );
+
+    // CONVERTIR LA DATE
+
+  console.log("AVANT PUSH", voyage);
   req.session.voyages.push(voyage);
+  console.log(req.session.voyages);
+
   res.render('panier', {listeVoyages: req.session.voyages});
 });
 

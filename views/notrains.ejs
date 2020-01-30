@@ -8,40 +8,29 @@
 
   </head>
   <body>
-
+   
     <%- include('header') %>
- 
+
     <div class="home"> 
 
         <div class="container-fluid">
-      
-           <div  class="row-fluid">
-           
-               <div class="col text-center get_started">
-                 <h2>Tickets available on <%=displayDate(dispo[0].date)%>:</h2>
-               </div>
-
-               <!-- liste options trajets -->
-               <ul class="list-group">
-                
-                <% for(let i=0; i<dispo.length; i++){ %>
-
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <h5><%=dispo[i].departure%> / <%=dispo[i].arrival%></h5>
-                        <h6>train departure at: <%=dispo[i].departureTime%> h</h6>
-                        <a href='/addjourney?voyage=<%=dispo[i]._id%>'><button type="button" class="btn btn-danger">OK</button></a>
-                    </li>
-
-                <% } %>
                 
 
-
-               </ul>
-
-               
+                <div  class="row-fluid">
                 
-            </div>
 
+                 </div>
+
+
+                 <div class="col text-center get_started">
+                    <h2>Oops ! No trains available...</h2>
+                    <a href="/homepage"><button type="submit" class="btn btn-info btn btn-danger">Home</button></a>
+                 </div>
+
+                    
+                        
+                    
+                </div>
         </div>
   
     </div>
