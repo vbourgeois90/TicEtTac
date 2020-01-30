@@ -52,8 +52,12 @@ router.get('/checkout', async function(req, res, next) {
   console.log(req.session)
   var user=await userModel.findById(req.session.user.id);
   console.log("USER", user)
-  user.journey.push(req.session.voyages[0]);
+
+  for(let i=0; i<req.session.voyages.length; i++){
+    user.journey.push(req.session.voyages[i]);
+  }
   console.log(user);
+
   var usersaved = await user.save();
   req.session.voyages=[];
   console.log(req.session.voyages);
@@ -61,9 +65,12 @@ router.get('/checkout', async function(req, res, next) {
 });
 
 /* HISTORIQUE */
-router.get('/historique', function(req, res, next) {
-
-  res.render('historique');
+router.get('/historique', async function(req, res, next) {
+  var user=await userModel.findById(req.session.user.id)
+                          .populate('journey')
+                          .exec();
+  console.log(user);
+  res.render('historique', {userJourneys: user.journey});
 });
 
 /* REDIRECTION HOMEPAGE */
