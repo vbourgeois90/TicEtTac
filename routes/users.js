@@ -5,21 +5,19 @@ var userModel = require('../models/user')
 
 // SIGN-UP
 
-router.post('/sign-up', async function(req,res,next){
+router.post('/sign-up', async function(req,res,next) {
 
   var searchUser = await userModel.findOne({
     email: req.body.email
   })
   
-console.log(req.body);
-
   if(!searchUser){
     var newUser = new userModel({
-      firstName: req.body.firstName.toLowerCase(),
-      lastName: req.body.lastName.toLowerCase(),
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
-    })
+    });
   
     var newUserSave = await newUser.save();
   
@@ -31,7 +29,7 @@ console.log(req.body);
   
     console.log(req.session.user)
   
-    res.redirect('/homepage')
+    res.render('index')
   } else {
     res.redirect('/')
   }
@@ -51,9 +49,9 @@ router.post('/sign-in', async function(req,res,next){
       lastName: searchUser.lastName,
       id: searchUser._id
     }
-    res.redirect('/homepage')
+    res.render('index')
   } else {
-    res.render('login')
+    res.render('/')
   }
 
   
