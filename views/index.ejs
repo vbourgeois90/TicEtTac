@@ -33,7 +33,7 @@
               <div class="col-2 d-flex">
               
                 <a class="nav-item nav-link" href="#">Connection </a>
-                <a class="nav-item nav-link" href="#" >My last trip</a>
+                <a class="nav-item nav-link" href="/historique" >My last trip</a>
               
               </div>
 
@@ -45,18 +45,18 @@
                 <h2>One-way ticket:</h2>
               </div>
 
-              <!-- formulaire ville -->
               <div class="row"> 
-                <form action="/users/sign-up" method="POST">
-                <div class="form-group">
-                
-                <input name="usernameFromFront" type="text" class="form-control" placeholder="From: Paris, Marseille...">
-                </div>
 
-                <div class="form-group">
-                
-                <input name="emailFromFront" type="email" class="form-control" aria-describedby="emailHelp" placeholder="To: Lille, Nantes...">
-              </div>
+                <!-- formulaires villes départ - arrivée -->
+                <form action="/recherche" method="POST">
+
+                  <div class="form-group">
+                    <input name="depart" type="text" class="form-control" placeholder="From: Paris, Marseille...">
+                  </div>
+
+                  <div class="form-group">
+                    <input name="arrivee" type="text" class="form-control" placeholder="To: Lille, Nantes...">
+                  </div>
 
                 <!-- calendrier -->
                 <div> 
@@ -67,15 +67,14 @@
                 <!-- boutton Go -->
                   <button type="submit" class="btn btn-info btn btn-danger">Go</button>
                   
-                  
                 </form>
+
               </div>
 
               <div  class="d-flex align-items-center"> 
-                <img src="../images/landmark.png "  class="logo" > 
+                <img src="../images/landmark.png " class="logo" > 
               </div>
                 
-              
         </div>
       </div>
   
