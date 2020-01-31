@@ -56,6 +56,14 @@ router.get('/addjourney', async function(req, res, next) {
 
   console.log("AVANT PUSH", voyage);
   req.session.voyages.push(voyage);
+
+  console.log("APRES", req.session.voyages);
+
+  for(let i=0; i<req.session.voyages.length; i++){
+    console.log("ALLOOO")
+    req.session.voyages[i].date.toString();
+  }
+
   console.log(req.session.voyages);
 
   res.render('panier', {listeVoyages: req.session.voyages});
