@@ -3,7 +3,20 @@ body {
   background: rgb(2,0,36);
   background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(106,106,209,1) 0%, rgba(0,212,255,1) 100%, rgba(6,78,166,1) 100%);
 }
-nav{
-  margin-bottom: 100px;
 
+nav {
+  margin-bottom: 100px;
+}
+
+h5 {
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
+h6 {
+  margin-bottom: 0;
+}
+
+.infoprix {
+  margin:0, 10px;
 }
