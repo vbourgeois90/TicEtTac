@@ -25,9 +25,22 @@ nav{
   margin-bottom: 10vh;
 }
 
+#bande{
+  padding:0;
+}
+
+#navbarlinks{
+  padding:0;
+}
+
 #logocentre{
   height: 20vw;
 }
+
+#mylasttrip{
+  padding-right:0;
+}
+
 .form-group {
   padding-left: 2vh;
 }
