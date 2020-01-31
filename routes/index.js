@@ -12,12 +12,10 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* PAGE D'ACCUEIL */
 router.get('/', function(req, res, next) {
-  console.log(req.session.user);
   if(!req.session.voyages){
     req.session.voyages=[];
   };
   req.session.user=undefined;
-  console.log(req.session.voyages);
   res.render('login');
 });
 
@@ -44,7 +42,7 @@ router.post('/recherche', async function(req, res, next) {
 
 /* CHOIX */
 router.get('/addjourney', async function(req, res, next) {
-  console.log(req.session.voyages);
+
   if(req.session.user===undefined){
     res.redirect('/')
   }
@@ -52,19 +50,7 @@ router.get('/addjourney', async function(req, res, next) {
     {_id: req.query.voyage}
   );
 
-    // CONVERTIR LA DATE
-
-  console.log("AVANT PUSH", voyage);
   req.session.voyages.push(voyage);
-
-  console.log("APRES", req.session.voyages);
-
-  for(let i=0; i<req.session.voyages.length; i++){
-    console.log("ALLOOO")
-    req.session.voyages[i].date.toString();
-  }
-
-  console.log(req.session.voyages);
 
   res.render('panier', {listeVoyages: req.session.voyages});
 });
@@ -79,11 +65,10 @@ router.get('/checkout', async function(req, res, next) {
   for(let i=0; i<req.session.voyages.length; i++){
     user.journey.push(req.session.voyages[i]);
   }
-  console.log(user);
 
   var usersaved = await user.save();
   req.session.voyages=[];
-  console.log(req.session.voyages);
+
   res.render('index');
 });
 
