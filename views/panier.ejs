@@ -49,20 +49,20 @@
                     } %>
                     
                 </tbody>
-                <tr>
-                    <th class="table-danger" scope="row">Total</th>
+                <tr class="table-danger">
+                    <th scope="row">Total</th>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td class="table-danger"><%=total%> €</td>
+                    <td><%=total%> €</td>
                   </tr>
               </table>
 
             </div>
 
-            <div class="row">
-              <a href='/homepage'><button type="button" class="btn btn-danger pull-right">Add another trip</button></a>
-              <a href='/checkout'><button type="button" class="btn btn-danger">Checkout</button></a>
+            <div class="row d-flex justify-content-end">
+              <a href='/homepage'><button type="button" class="btn btn-danger">Add another trip</button></a>
+              <a href='/checkout'><button type="button" class="btn btn-danger" id="logocheckout">Checkout</button></a>
             </div>
 
 
