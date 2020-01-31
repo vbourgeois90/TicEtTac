@@ -20,9 +20,9 @@
         
               
               <!-- tableau paniers  -->
-              <table class="table table-light">
+              <table class="table table-light border border-primary">
                 <thead>
-                  <tr>
+                  <tr class="table-info">
                     <th scope="col">N°</th>
                     <th scope="col">Journey</th>
                     <th scope="col">Date</th>
@@ -37,34 +37,39 @@
                       let date= new Date(listeVoyages[i].date)
                     %>
                         
-                        <tr>
+                        <tr >
                             <th scope="row"><%=i+1%></th>
                             <td><%=listeVoyages[i].departure%> / <%=listeVoyages[i].arrival%></td>
                             <td><%=displayDate(date)%></td>
                             <td><%=listeVoyages[i].departureTime%> h</td>
                             <td><%=listeVoyages[i].price%> €</td>
-                          </tr>
+                          </tr >
                     <% 
                     total+=listeVoyages[i].price
                     } %>
                     
                 </tbody>
                 <tr>
-                    <th scope="row">Total</th>
+                    <th class="table-danger" scope="row">Total</th>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><%=total%> €</td>
+                    <td class="table-danger"><%=total%> €</td>
                   </tr>
               </table>
 
             </div>
 
             <div class="row">
-              <a href='/homepage'><button type="button" class="btn btn-danger">Add another trip</button></a>
+              <a href='/homepage'><button type="button" class="btn btn-danger pull-right">Add another trip</button></a>
               <a href='/checkout'><button type="button" class="btn btn-danger">Checkout</button></a>
             </div>
 
+
+
+
+
+            
         </div>
   
     </div>
