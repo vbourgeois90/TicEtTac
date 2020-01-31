@@ -7,10 +7,6 @@ background: linear-gradient(to bottom,  rgba(125,185,232,1) 0%,rgba(32,124,202,1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 );
 }
 
-nav {
-  margin-bottom: 100px;
-}
-
 h5 {
   margin-bottom: 0;
   margin-right: 10px;
@@ -23,7 +19,12 @@ h6 {
 .infoprix {
   margin:0, 10px;
 }
-nav{
-  margin-bottom: 15vh;
 
+nav{
+  height: 80px;
+  margin-bottom: 10vh;
+}
+
+#logocentre{
+  height: 20vw;
 }
