@@ -13,6 +13,9 @@ var session = require("express-session");
 
 var app = express();
 
+app.locals.displayDate=function(date){
+  return date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear().toString().substr(-2);
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

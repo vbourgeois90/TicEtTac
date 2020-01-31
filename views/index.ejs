@@ -16,17 +16,17 @@
       <div class="container-fluid">
         
       
-        <div  class="row-fluid">
+        <div   class="row-fluid">
         
        
-        </div>
+        </div >
 
 
               <div class="col text-center get_started ">
-                <h2 class="text-white">One-way ticket:</h2>
+                <label> <h2 class="text-white">One-way ticket:</h2> </label>
               </div>
 
-              <div class="row"> 
+              <div class="row d-flex  justify-content-center form-group mb-5"> 
 
                 <!-- formulaires villes départ - arrivée -->
                 <form action="/recherche" method="POST">
@@ -39,20 +39,22 @@
                     <input name="arrivee" type="text" class="form-control" placeholder="To: Lille, Nantes...">
                   </div>
 
-                <!-- calendrier -->
-                <div> 
+                 <!-- calendrier -->
+                 <div> 
                   <label for="date"></label>
                   <input name="date" type="date" id="date">
-                </div>
+                 </div>
 
-                <!-- boutton Go -->
+                 <!-- boutton Go -->
+                 <div>
                   <button type="submit" class="btn btn-info btn btn-danger">Go</button>
-                  
+                </div>
+                
                 </form>
 
               </div>
 
-              <div  class="d-flex align-items-center"> 
+              <div  class="row d-flex  justify-content-center"> 
                 <img src="../images/landmark.png " class="logo" > 
               </div>
                 
