@@ -1,11 +1,13 @@
 body {
   height: 100vh;
+  background-size: auto;
+  background-repeat: no-repeat;
   background: rgb(125,185,232);
   background: -moz-linear-gradient(top,  rgba(125,185,232,1) 53%, rgba(32,124,202,1) 100%);
   background: -webkit-linear-gradient(top,  rgba(125,185,232,1) 53%,rgba(32,124,202,1) 100%);
   background: linear-gradient(to bottom,  rgba(125,185,232,1) 53%,rgba(32,124,202,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#207cca',GradientType=0 );
-    }
+}
 
 
 h5 {
@@ -14,6 +16,10 @@ h5 {
 }
 
 h6 {
+  margin-bottom: 0;
+}
+
+nav p {
   margin-bottom: 0;
 }
 
@@ -31,7 +37,7 @@ nav{
 }
 
 #navbarlinks{
-  padding:0;
+  padding:5px;
 }
 
 #logocentre{
@@ -49,7 +55,6 @@ nav{
   margin-right: 15px;
   margin-left: 15px;
 }
-<<<<<<< HEAD
 
 .bg-modal {
   width: 100%;
@@ -89,8 +94,9 @@ nav{
   top: 0;
   right: 10px;
   transform: rotate(45deg)
-=======
-#boutongoindex{
+}
+
+#boutongoindex {
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -102,5 +108,4 @@ nav{
 }
 #spacesm{
   margin-bottom: 50px;
->>>>>>> 059a5a1e96cb5a9182e692658bac760d2435572a
 }
