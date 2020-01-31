@@ -6,9 +6,7 @@ body {
   background: linear-gradient(to bottom,  rgba(125,185,232,1) 53%,rgba(32,124,202,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#207cca',GradientType=0 );
     }
-nav {
-  margin-bottom: 100px;
-}
+
 
 h5 {
   margin-bottom: 0;
@@ -22,10 +20,28 @@ h6 {
 .infoprix {
   margin:0, 10px;
 }
-nav{
-  margin-bottom: 15vh;
 
+nav{
+  height: 80px;
+  margin-bottom: 10vh;
 }
+
+#bande{
+  padding:0;
+}
+
+#navbarlinks{
+  padding:0;
+}
+
+#logocentre{
+  height: 20vw;
+}
+
+#mylasttrip{
+  padding-right:0;
+}
+
 .form-group {
   padding-left: 2vh;
 }
